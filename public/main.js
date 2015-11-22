@@ -229,7 +229,7 @@ $(function() {
   socket.on('login', function (data) {
     connected = true;
     // Display the welcome message
-    var message = "Welcome to CyphIM – ";
+    var message = "Welcome to CyphIm Chat – ";
     log(message, {
       prepend: true
     });
