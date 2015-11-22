@@ -67,7 +67,7 @@ ul {
 .login.page .form .usernameInput {
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #1aff1a;
   outline: none;
   padding-bottom: 15px;
   text-align: center;
@@ -84,7 +84,7 @@ ul {
 }
 
 .login.page .title, .login.page .usernameInput {
-  color: #fff;
+  color: #1aff1a;
   font-weight: 100;
 }
 
@@ -97,7 +97,7 @@ ul {
 /* Font */
 
 .messages {
-    overflow-y: scroll;
+    overflow-y: auto;
   font-size: 150%;
 }
 
