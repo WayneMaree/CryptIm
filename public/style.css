@@ -126,6 +126,11 @@ ul {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px;
+    -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    animation-name: example;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
 }
 
 .messages {
@@ -162,6 +167,20 @@ ul {
 
 .messageBody {
     color: #1aff1a;
+}
+
+/* Animation */
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    from {width: 100px;}
+    to {width: 100%;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    from {width: 100px;}
+    to {width: 100%;}
 }
 
 /* Scrollbar */
