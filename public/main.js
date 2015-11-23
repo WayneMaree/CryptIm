@@ -25,6 +25,17 @@ $(function() {
 
   var socket = io();
 
+  // Loads the encryptor -- Doesn't work, different keys for each user
+  $.ajax({
+    async: false,
+    type: 'GET',
+    url: 'encrypter.js',
+    data: null,
+    dataType: 'script',
+    success: function() { encryptor.constructor(); },
+    error: function() {}
+  });
+
   function addParticipantsMessage (data) {
     var message = '';
     if (data.numUsers === 1) {
@@ -61,7 +72,7 @@ $(function() {
       $inputMessage.val('');
       addChatMessage({
         username: username,
-        message: message
+        message: encryptor.encrypt(message)
       });
       // tell server to execute 'new message' and send along one parameter
       socket.emit('new message', message);
@@ -97,6 +108,33 @@ $(function() {
       .append($usernameDiv, $messageBodyDiv);
 
     addMessageElement($messageDiv, options);
+
+    $messageDiv.attr('data-encrypted', 'true');
+    $messageDiv.on('click', function() {
+      var $this = $(this),
+          encrypted = $this[0].dataset.encrypted;
+
+      if(encrypted === 'true') {
+        $this[0].dataset.encrypted = 'false';
+
+        var $messageBody = $('.messageBody', $this),
+            message = $messageBody.text();
+
+        $messageBody.text(encryptor.decrypt(message));
+      }
+    }).on('mouseout', function() {
+      var $this = $(this),
+          encrypted = $this[0].dataset.encrypted;
+
+      if(encrypted === 'false') {
+        $this[0].dataset.encrypted = 'true';
+
+        var $messageBody = $('.messageBody', $this),
+            message = $messageBody.text();
+
+        $messageBody.text(encryptor.encrypt(message));
+      }
+    });
   }
 
   // Adds the visual chat typing message

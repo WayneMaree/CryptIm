@@ -127,6 +127,10 @@ ul {
   color: gray;
 }
 
+.messageBody {
+  cursor: pointer;
+}
+
 .username {
   float: left;
   font-weight: 700;
