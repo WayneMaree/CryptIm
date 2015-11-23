@@ -128,6 +128,14 @@ ul {
     padding: 5px;
 }
 
+.message i {
+  float: right;
+  color: white;
+  cursor: pointer;
+  margin: 2px 5px 0 0;
+  vertical-align: middle;
+}
+
 .messages {
   height: 100%;
   margin: 0;
