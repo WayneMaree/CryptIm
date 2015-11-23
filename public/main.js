@@ -101,11 +101,17 @@ $(function() {
     var $messageBodyDiv = $('<span class="messageBody">')
       .text(data.message);
 
+    var hideIcon = $('<i class="fa fa-times-circle"></i>')
+        .on('click', function() {
+          this.parentNode.style.display='none';
+        });
+
     var typingClass = data.typing ? 'typing' : '';
-    var $messageDiv = $('<li class="message"/>')
+    var $messageDiv = $('<li class="message"></li>')
       .data('username', data.username)
       .addClass(typingClass)
-      .append($usernameDiv, $messageBodyDiv);
+      .append($usernameDiv, $messageBodyDiv)
+      .append(hideIcon);
 
     addMessageElement($messageDiv, options);
 
@@ -267,7 +273,7 @@ $(function() {
   socket.on('login', function (data) {
     connected = true;
     // Display the welcome message
-    var message = "Welcome to Socket.IO Chat – ";
+    var message = "Welcome to CyphIm Chat – ";
     log(message, {
       prepend: true
     });
