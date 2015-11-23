@@ -72,7 +72,7 @@ $(function() {
       $inputMessage.val('');
       addChatMessage({
         username: username,
-        message: encryptor.encrypt(message)
+        message: message
       });
       // tell server to execute 'new message' and send along one parameter
       socket.emit('new message', message);
@@ -99,7 +99,7 @@ $(function() {
       .text(data.username)
       .css('color', getUsernameColor(data.username));
     var $messageBodyDiv = $('<span class="messageBody">')
-      .text(data.message);
+      .text(encryptor.encrypt(data.message));
 
     var hideIcon = $('<i class="fa fa-times-circle"></i>')
         .on('click', function() {
