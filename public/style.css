@@ -67,7 +67,7 @@ ul {
 .login.page .form .usernameInput {
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #1aff1a;
   outline: none;
   padding-bottom: 15px;
   text-align: center;
@@ -84,7 +84,7 @@ ul {
 }
 
 .login.page .title, .login.page .usernameInput {
-  color: #fff;
+  color: #1aff1a;
   font-weight: 100;
 }
 
@@ -97,7 +97,7 @@ ul {
 /* Font */
 
 .messages {
-    overflow-y: scroll;
+    overflow-y: auto;
   font-size: 150%;
 }
 
@@ -126,6 +126,11 @@ ul {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px;
+    -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    animation-name: example;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
 }
 
 .message i {
@@ -170,6 +175,20 @@ ul {
 
 .messageBody {
     color: #1aff1a;
+}
+
+/* Animation */
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    from {width: 100px;}
+    to {width: 100%;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    from {width: 100px;}
+    to {width: 100%;}
 }
 
 /* Scrollbar */
